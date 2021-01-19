@@ -25,5 +25,8 @@ public class HängaGubbe {
             out+="_";
         }
         System.out.println(out);
+        while (fel<10) {
+            guess=in.next();
+        }
     }
 }
