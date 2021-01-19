@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class HängaGubbe {
@@ -10,5 +11,7 @@ public class HängaGubbe {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        Random rand = new Random();
+        int N = rand.nextInt(5) + 1;
     }
 }
