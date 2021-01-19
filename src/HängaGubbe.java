@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,10 +20,11 @@ public class HängaGubbe {
         }
         Scanner in = new Scanner(System.in);
         String guess ="";
-        String out = "";
+        char[] out = new char[ord.length()];
         int fel =0;
+        String felOut = "";
         for (int e = 0;e<ord.length();e++) {
-            out+="_";
+            out[e] ='_';
         }
         System.out.println(out);
         while (fel<10) {
@@ -32,6 +34,9 @@ public class HängaGubbe {
                 System.out.println(ord);
                 System.out.println("Du hade så här många fel "+fel);
                 break;
+            } else if (!ord.contains(guess)) {
+                fel++;
+                felOut += guess+" ";
             }
         }
     }
