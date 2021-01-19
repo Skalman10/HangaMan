@@ -17,5 +17,6 @@ public class HängaGubbe {
         for (int i =0;i<N;i++) {
             ord = lista.next();
         }
+        Scanner in = new Scanner(System.in);
     }
 }
