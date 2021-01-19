@@ -27,6 +27,12 @@ public class HängaGubbe {
         System.out.println(out);
         while (fel<10) {
             guess=in.next();
+            guess = guess.toLowerCase();
+            if (guess.equals(ord)) {
+                System.out.println(ord);
+                System.out.println("Du hade så här många fel "+fel);
+                break;
+            }
         }
     }
 }
