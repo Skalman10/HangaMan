@@ -5,13 +5,17 @@ import java.util.Scanner;
 
 public class HängaGubbe {
     public static void main(String[] args) {
-        Scanner ord = null;
+        Scanner lista = null;
         try {
-            ord = new Scanner(new File("src","OrdLista"));
+            lista = new Scanner(new File("src","OrdLista"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         Random rand = new Random();
         int N = rand.nextInt(5) + 1;
+        String ord ="";
+        for (int i =0;i<N;i++) {
+            ord = lista.next();
+        }
     }
 }
