@@ -21,6 +21,8 @@ public class HängaGubbe {
         String guess ="";
         String out = "";
         int fel =0;
-
+        for (int e = 0;e<ord.length();e++) {
+            out+="_";
+        }
     }
 }
