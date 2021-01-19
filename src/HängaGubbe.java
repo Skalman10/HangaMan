@@ -24,5 +24,6 @@ public class HängaGubbe {
         for (int e = 0;e<ord.length();e++) {
             out+="_";
         }
+        System.out.println(out);
     }
 }
