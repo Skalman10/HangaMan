@@ -18,5 +18,9 @@ public class HängaGubbe {
             ord = lista.next();
         }
         Scanner in = new Scanner(System.in);
+        String guess ="";
+        String out = "";
+        int fel =0;
+
     }
 }
