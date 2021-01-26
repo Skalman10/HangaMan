@@ -21,7 +21,10 @@ public class HängaGubbe {
         //Ett ord har nu blivit slumpat
         Scanner in = new Scanner(System.in);
         String guess ="";
-        char[] out = ord.toCharArray();
+        char[] out = new char[ord.length()];
+        for (int i = 0;i<ord.length();i++) {
+            out[i] = '-';
+        }
         int fel =0;
         String felOut = "";
         System.out.println(out);
@@ -42,6 +45,8 @@ public class HängaGubbe {
                     }
                 }
             }
+            System.out.printf(Arrays.toString(out));
+            System.out.println(felOut);
         }
     }
 }
