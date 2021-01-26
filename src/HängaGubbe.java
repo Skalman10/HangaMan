@@ -35,6 +35,12 @@ public class HängaGubbe {
             } else if (!ord.contains(guess)) {
                 fel++;
                 felOut += guess+" ";
+            } else {
+                for (int i = 0;i<ord.length();i++) {
+                    if (guess.equals(ord.charAt(i)+"")) {
+                        out[i]=ord.charAt(i);
+                    }
+                }
             }
         }
     }
