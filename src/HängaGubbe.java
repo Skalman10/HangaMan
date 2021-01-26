@@ -18,14 +18,12 @@ public class HängaGubbe {
         for (int i =0;i<N;i++) {
             ord = lista.next();
         }
+        //Ett ord har nu blivit slumpat
         Scanner in = new Scanner(System.in);
         String guess ="";
-        char[] out = new char[ord.length()];
+        char[] out = ord.toCharArray();
         int fel =0;
         String felOut = "";
-        for (int e = 0;e<ord.length();e++) {
-            out[e] ='_';
-        }
         System.out.println(out);
         while (fel<10) {
             guess=in.next();
