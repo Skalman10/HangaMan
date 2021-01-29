@@ -6,18 +6,7 @@ import java.util.Scanner;
 
 public class HängaGubbe {
     public static void main(String[] args) {
-        Scanner lista = null;
-        try {
-            lista = new Scanner(new File("src","OrdLista"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        Random rand = new Random();
-        int N = rand.nextInt(5) + 1;
-        String ord ="";
-        for (int i =0;i<N;i++) {
-            ord = lista.next();
-        }
+        String ord =slumpaOrd();
         //Ett ord har nu blivit slumpat
         Scanner in = new Scanner(System.in);
         String guess ="";
@@ -45,8 +34,24 @@ public class HängaGubbe {
                     }
                 }
             }
-            System.out.printf(Arrays.toString(out));
+            System.out.println(Arrays.toString(out));
             System.out.println(felOut);
         }
+    }
+
+    private static String slumpaOrd() {
+        Scanner lista = null;
+        try {
+            lista = new Scanner(new File("src","OrdLista"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Random rand = new Random();
+        int N = rand.nextInt(5) + 1;
+        String ord ="";
+        for (int i =0;i<N;i++) {
+            ord = lista.next();
+        }
+        return ord;
     }
 }
