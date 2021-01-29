@@ -9,32 +9,37 @@ public class HängaGubbe {
         String ord =slumpaOrd();
         //Ett ord har nu blivit slumpat
         Scanner in = new Scanner(System.in);
-        String guess ="";
         char[] out = new char[ord.length()];
         for (int i = 0;i<ord.length();i++) {
-            out[i] = '-';
+            out[i] = '_';
         }
+        // En char array som kommer vara output bestående av _
         int fel =0;
+        String guess ="";
         String felOut = "";
-        System.out.println(out);
+        // Lite variabel deklarationer
         while (fel<10) {
+            // Nu börjar själva spelet i programmet
+            System.out.println(Arrays.toString(out));
             guess=in.next();
             guess = guess.toLowerCase();
-            if (guess.equals(ord)) {
-                System.out.println(ord);
-                System.out.println("Du hade så här många fel "+fel);
-                break;
-            } else if (!ord.contains(guess)) {
+            // Läser in gissningen
+            if (!ord.contains(guess)) {
                 fel++;
                 felOut += guess+" ";
+                // Om ordet inte innehåller gissningen så får man +1 fel och gissningen sparas
             } else {
                 for (int i = 0;i<ord.length();i++) {
                     if (guess.equals(ord.charAt(i)+"")) {
                         out[i]=ord.charAt(i);
                     }
                 }
+                if (guess.equals(ord)||!Arrays.toString(out).contains("_")) {
+                    System.out.println(ord);
+                    System.out.println("Du hade så här många fel "+fel);
+                    break;
+                }
             }
-            System.out.println(Arrays.toString(out));
             System.out.println(felOut);
         }
     }
