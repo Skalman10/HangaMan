@@ -9,21 +9,25 @@ public class HängaGubbe {
         String ord = slumpaOrd();
         //Ett ord har nu blivit slumpat
 
-        Scanner in = new Scanner(System.in);
         char[] out = new char[ord.length()];
         for (int i = 0; i < ord.length(); i++) {
             out[i] = '_';
         }
         // En char array som kommer vara output bestående av _
 
+        Scanner in = new Scanner(System.in);
         int fel = 0;
         String guess = "";
         String felOut = "";
         boolean förlora = true;
         // Lite variabel deklarationer
 
+        playGame(ord,out,fel,guess,felOut,förlora,in);
+        // Nu börjar själva spelet i programmet
+    }
+
+    private static void playGame(String ord, char[] out, int fel, String guess, String felOut, boolean förlora, Scanner in) {
         while (fel < 10) {
-            // Nu börjar själva spelet i programmet
             System.out.println(Arrays.toString(out));
             guess = in.next();
             guess = guess.toLowerCase();
@@ -64,7 +68,6 @@ public class HängaGubbe {
                 out[i] = ord.charAt(i);
             }
         }
-        return;
     }
 
     private static String slumpaOrd() {
