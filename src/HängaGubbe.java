@@ -17,6 +17,7 @@ public class HängaGubbe {
         int fel =0;
         String guess ="";
         String felOut = "";
+        boolean förlora = true;
         // Lite variabel deklarationer
         while (fel<10) {
             // Nu börjar själva spelet i programmet
@@ -37,10 +38,14 @@ public class HängaGubbe {
                 if (guess.equals(ord)||!Arrays.toString(out).contains("_")) {
                     System.out.println(ord);
                     System.out.println("Du hade så här många fel "+fel);
+                    förlora = false;
                     break;
                 }
             }
             System.out.println(felOut);
+        }
+        if (förlora) {
+            System.out.println("Du förlorade :)");
         }
     }
 
