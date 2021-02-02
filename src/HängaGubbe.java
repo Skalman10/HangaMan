@@ -6,49 +6,54 @@ import java.util.Scanner;
 
 public class HängaGubbe {
     public static void main(String[] args) {
-        String ord =slumpaOrd();
+        String ord = slumpaOrd();
         //Ett ord har nu blivit slumpat
         Scanner in = new Scanner(System.in);
         char[] out = new char[ord.length()];
-        for (int i = 0;i<ord.length();i++) {
+        for (int i = 0; i < ord.length(); i++) {
             out[i] = '_';
         }
         // En char array som kommer vara output bestående av _
-        int fel =0;
-        String guess ="";
+        int fel = 0;
+        String guess = "";
         String felOut = "";
         boolean förlora = true;
         // Lite variabel deklarationer
-        while (fel<10) {
+        while (fel < 10) {
             // Nu börjar själva spelet i programmet
             System.out.println(Arrays.toString(out));
-            guess=in.next();
+            guess = in.next();
             guess = guess.toLowerCase();
             // Läser in gissningen
             if (!ord.contains(guess)) {
                 fel++;
-                felOut += guess+" ";
+                felOut += guess + " ";
                 // Om ordet inte innehåller gissningen så får man +1 fel och gissningen sparas
             } else {
-                for (int i = 0;i<ord.length();i++) {
-                    if (guess.equals(ord.charAt(i)+"")) {
-                        out[i]=ord.charAt(i);
+                if (guess.length() == 1) {
+                    for (int i = 0; i < ord.length(); i++) {
+                        if (guess.equals(ord.charAt(i) + "")) {
+                            out[i] = ord.charAt(i);
+                        }
                     }
+                    // Om ordet innehåller gissningen och består av 1 character
+                    // så kommer den att byta ut alla _ med gissningen
                 }
-                if (guess.equals(ord)||!Arrays.toString(out).contains("_")) {
+                if (guess.equals(ord) || !Arrays.toString(out).contains("_")) {
                     System.out.println(ord);
-                    System.out.println("Du hade så här många fel "+fel);
+                    System.out.println("Du vann och hade så här många fel " + fel);
                     förlora = false;
                     break;
                 }
+                // Om gissningen är samma som ordet så har du vunnit
             }
             System.out.println(felOut);
         }
         if (förlora) {
             System.out.println("Du förlorade :)");
         }
+        // Om du inte lyckats gissa rätt på 10 försök så har du förlorat
     }
-
     private static String slumpaOrd() {
         Scanner lista = null;
         try {
